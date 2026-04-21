@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Presentation</title>
+    <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #f0f2f5; }
+        .box { background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); text-align: center; max-width: 400px; }
+        h2 { margin: 0 0 8px; color: #1e293b; }
+        p { color: #64748b; margin: 0 0 24px; }
+        button { background: #4f46e5; color: white; border: none; padding: 14px 28px; font-size: 16px; font-weight: 600; border-radius: 10px; cursor: pointer; transition: 0.2s; }
+        button:hover { background: #4338ca; transform: translateY(-2px); }
+        button:active { transform: translateY(0); }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>📦 Creative Studio PPTX</h2>
+        <p>Click below to generate & download your presentation file instantly.</p>
+        <button onclick="createPPTX()">Download Presentation.pptx</button>
+    </div>
+
+    <script>
+        function createPPTX() {
+            let pptx = new PptxGenJS();
+            const addSlide = (title, lines, isTitle = false) => {
+                let slide = pptx.addSlide();
+                slide.background = { fill: "F8FAFC" };
+                if (isTitle) {
+                    slide.addText(title, { x: 1, y: 2.2, w: 11.33, h: 1.5, fontSize: 36, color: "1E293B", align: "center", bold: true });
+                    slide.addText("Multi-Page Web Project\nPresented by: [Your Name]", { x: 1, y: 3.8, w: 11.33, h: 1.5, fontSize: 18, color: "475569", align: "center" });
+                } else {
+                    slide.addText(title, { x: 0.8, y: 0.4, w: 11.33, h: 0.8, fontSize: 28, color: "0F172A", bold: true });
+                    slide.addShape(pptx.ShapeType.rect, { x: 0.8, y: 1.1, w: 11.33, h: 0.04, fill: { color: "6366F1" } });
+                    let text = "• " + lines.join("\n• ");
+                    slide.addText(text, { x: 0.8, y: 1.4, w: 11.33, h: 5.5, fontSize: 15, color: "334155", lineSpacingMultiple: 1.4, valign: "top" });
+                }
+            };
+
+            addSlide("Creative Studio Website", [], true);
+            addSlide("Project Overview", ["Purpose: Build a professional, responsive multi-page website", "Demonstrate modern frontend practices (HTML/CSS/JS)", "Simulated login/registration without backend/database", "7 fully styled pages with smooth animations & interactivity"]);
+            addSlide("Website Pages", ["1. Home (/) - Hero banner, features, CTAs", "2. About (/about) - Company story, team, stats", "3. Services (/services) - Pricing cards with icons", "4. Gallery (/gallery) - Filterable portfolio grid", "5. Contact (/contact) - Validated contact form", "6. Login (/login) - Auth form with session handling", "7. Register (/register) - User creation with validation"]);
+            addSlide("Folder Structure", ["creative-studio-website/", "├── index.html, about.html, services.html, gallery.html", "├── contact.html, login.html, register.html", "├── css/style.css (Responsive, CSS variables, 800+ lines)", "├── js/main.js (DOM, localStorage, form handling)", "└── README.md (Setup & features documentation)"]);
+            addSlide("Login & Registration Workflow", ["• Simulated using browser localStorage (NO backend)", "• Register: Validates → Checks duplicates → Saves to localStorage → Redirects", "• Login: Reads credentials → Matches stored data → Sets session → Redirects", "• Data persists until browser cache is cleared", "• Note: Plaintext passwords for demo only. Real apps require hashing & server validation"]);
+            addSlide("Key Features", ["✅ Fully responsive (mobile, tablet, desktop)", "✅ Modern UI with CSS gradients & variables", "✅ Smooth hover effects & transitions", "✅ Gallery filtering without page reload", "✅ Real-time form validation & feedback", "✅ Mobile hamburger navigation", "✅ Client-side session management"]);
+            addSlide("Technologies Used", ["Frontend: HTML5, CSS3 (Grid/Flexbox), JavaScript ES6+", "External: Font Awesome (icons), Unsplash (placeholders)", "Storage: Web Storage API (localStorage)", "Zero build tools required - runs natively in browser", "Follows mobile-first, semantic, accessible standards"]);
+            addSlide("Screenshots & Demo", ["[Insert your actual screenshots here during presentation]", "• Show desktop vs mobile responsive layout", "• Demonstrate gallery category filtering", "• Show login/register validation in action", "• Open DevTools to show localStorage data", "Run locally: Open index.html or 'python -m http.server'"]);
+            addSlide("Challenges & Solutions", ["Responsive Nav → CSS media queries + JS toggle", "No Backend → localStorage simulation with validation", "Gallery Filter → DOM manipulation + CSS transitions", "Consistent Styling → CSS variables & shared component classes", "Form UX → Real-time validation + clear success/error states"]);
+            addSlide("Conclusion & Future Scope", ["Delivered complete, production-ready frontend", "Demonstrates strong HTML/CSS/JS fundamentals", "Future: Backend (Node/Flask), Database, Password Hashing, User Dashboard, Deployment", "Thank you! Questions?"]);
+
+            pptx.writeFile({ fileName: "Creative_Studio_Website_Presentation.pptx" });
+        }
+    </script>
+</body>
+</html>
