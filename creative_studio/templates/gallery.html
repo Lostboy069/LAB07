@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Gallery - Creative Studio{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Our Gallery</h1>
+    <p>Browse through our latest projects</p>
+</section>
+
+<section class="gallery-section">
+    <div class="container">
+        <div class="gallery-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="web">Web Design</button>
+            <button class="filter-btn" data-filter="app">Mobile Apps</button>
+            <button class="filter-btn" data-filter="branding">Branding</button>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item" data-category="web">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600" alt="E-Commerce Platform">
+                <div class="gallery-overlay"><h3>E-Commerce Platform</h3><p>Web Design</p></div>
+            </div>
+            <div class="gallery-item" data-category="app">
+                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600" alt="Fitness App">
+                <div class="gallery-overlay"><h3>Fitness Mobile App</h3><p>Mobile Development</p></div>
+            </div>
+            <div class="gallery-item" data-category="branding">
+                <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=600" alt="Brand Identity">
+                <div class="gallery-overlay"><h3>Brand Identity</h3><p>Branding</p></div>
+            </div>
+            <div class="gallery-item" data-category="web">
+                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600" alt="Corporate Website">
+                <div class="gallery-overlay"><h3>Corporate Website</h3><p>Web Design</p></div>
+            </div>
+            <div class="gallery-item" data-category="app">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600" alt="Travel App">
+                <div class="gallery-overlay"><h3>Travel App</h3><p>Mobile Development</p></div>
+            </div>
+            <div class="gallery-item" data-category="branding">
+                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?w=600" alt="Logo Design">
+                <div class="gallery-overlay"><h3>Logo Design</h3><p>Branding</p></div>
+            </div>
+            <div class="gallery-item" data-category="web">
+                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=600" alt="Portfolio Site">
+                <div class="gallery-overlay"><h3>Portfolio Site</h3><p>Web Design</p></div>
+            </div>
+            <div class="gallery-item" data-category="app">
+                <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?w=600" alt="Food Delivery App">
+                <div class="gallery-overlay"><h3>Food Delivery App</h3><p>Mobile Development</p></div>
+            </div>
+            <div class="gallery-item" data-category="branding">
+                <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600" alt="Packaging Design">
+                <div class="gallery-overlay"><h3>Packaging Design</h3><p>Branding</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
